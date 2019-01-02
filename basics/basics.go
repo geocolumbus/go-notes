@@ -10,11 +10,12 @@ import (
 )
 
 func All() {
-	numbers()
-	strings()
+	// integersAndFloatsAndComplex()
+	// stringsAndRunes()
+	loopsAndIf()
 }
 
-func numbers() {
+func integersAndFloatsAndComplex() {
 
 	fmt.Println("\n----- Number types ----------------")
 	fmt.Println("")
@@ -68,7 +69,7 @@ func numbers() {
 	fmt.Printf("%v  %v  %v  %v  %v  %v\n", c, cmplx.Abs(c), c64, cmplx.Abs(complex128(c64)), c128, cmplx.Abs(c128))
 }
 
-func strings() {
+func stringsAndRunes() {
 	fmt.Println("\n----- Strings, runes & bytes ------")
 	fmt.Println("")
 
@@ -83,4 +84,89 @@ func strings() {
 	for i := 0; i < len(runes); i++ {
 		fmt.Printf("%x - %s\n", runes[i], string(runes[i]))
 	}
+}
+
+func loopsAndIf() {
+
+	// simple for loop with i declared outside of loop
+	var i int
+	for i = 0; i < 3; i++ {
+		fmt.Printf("Iteration %d\n", i)
+	}
+
+	fmt.Println()
+
+	// more compact with inline declaration of j
+	for j := 3; j > 0; j-- {
+		fmt.Printf("Iteration %d\n", j)
+	}
+
+	fmt.Println()
+
+	// init and post statements can be omitted
+	k := 3
+	for ; k < 5; {
+		fmt.Printf("Optional iteration %d\n", k)
+		k++
+	}
+
+	fmt.Println()
+
+	// remove semicolons and it is a while loop
+	l := 3
+	for l < 5 {
+		fmt.Printf("Iterate like a while loop %d\n", l)
+		l++
+	}
+
+	fmt.Println()
+
+	// Infinite loop
+	// for {}
+
+	// Basic if statement
+	n := "George"
+	o := "George Campbell"
+
+	if n == o {
+		fmt.Printf("%s == %s\n", n, o)
+	} else {
+		fmt.Printf("%s != %s\n", n, o)
+	}
+
+	fmt.Println()
+
+	// if with a pre statement - note p is available in the else statement too.
+	q := 1
+	if p := 2; p < q {
+		fmt.Printf("%d < %d\n", p, q)
+	} else {
+		fmt.Printf("%d > %d\n", p, q)
+	}
+
+	fmt.Println()
+
+	animal := "bear"
+
+	// The switch statement
+	switch (animal) {
+	case "deer":
+		fmt.Println("Bambi")
+	case "bear":
+		fmt.Println("Balloo")
+	}
+
+	fmt.Println()
+
+	// The switch statement with no variable
+	w := 1
+	switch {
+	case w == 1:
+		fmt.Println("One")
+	case w == 2:
+		fmt.Println("Two")
+	}
+
+	fmt.Println()
+
 }
