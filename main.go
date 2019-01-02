@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-notes/basics"
+	"./basics"
 )
 
 func main() {
