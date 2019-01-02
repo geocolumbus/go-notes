@@ -10,8 +10,8 @@ import (
 )
 
 func All() {
-	// integersAndFloatsAndComplex()
-	// stringsAndRunes()
+	integersAndFloatsAndComplex()
+	stringsAndRunes()
 	loopsAndIf()
 }
 
