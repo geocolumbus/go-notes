@@ -23,6 +23,10 @@ download the repo
 ```
 git clone https://github.com/geocolumbus/go-notes.git
 cd go-notes
+
+install dependencies (humanize lets you display numbers with commas in them!)
+
+```
 go get github.com/dustin/go-humanize
 ```
 
