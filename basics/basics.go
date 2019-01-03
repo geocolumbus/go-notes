@@ -11,14 +11,15 @@ import (
 
 func All() {
 	integersAndFloatsAndComplex()
-	stringsAndRunes()
+	stringsAndRunesAndBytes()
 	loopsAndIf()
+	deferExample()
 }
 
 func integersAndFloatsAndComplex() {
 
-	fmt.Println("\n----- Number types ----------------")
-	fmt.Println("")
+	fmt.Printf("\n=== Integers, Floats, Complex ===\n\n")
+
 
 	var i = math.MaxInt64
 	var i8_min int8 = -1 << 7     // -128
@@ -69,9 +70,8 @@ func integersAndFloatsAndComplex() {
 	fmt.Printf("%v  %v  %v  %v  %v  %v\n", c, cmplx.Abs(c), c64, cmplx.Abs(complex128(c64)), c128, cmplx.Abs(c128))
 }
 
-func stringsAndRunes() {
-	fmt.Println("\n----- Strings, runes & bytes ------")
-	fmt.Println("")
+func stringsAndRunesAndBytes() {
+	fmt.Printf("\n=== Strings, Runes and Bytes ===\n\n")
 
 	var s string = "george"
 	var v byte = 1<<8 - 1
@@ -87,6 +87,8 @@ func stringsAndRunes() {
 }
 
 func loopsAndIf() {
+
+	fmt.Printf("\n=== Loops and If ===\n\n")
 
 	// simple for loop with i declared outside of loop
 	var i int
@@ -167,6 +169,23 @@ func loopsAndIf() {
 		fmt.Println("Two")
 	}
 
-	fmt.Println()
+}
+
+func deferExample() {
+
+	fmt.Printf("\n=== Deferreds ===\n\n")
+
+	a := func() int {
+		fmt.Println("Begin a()")
+		b := 1 // Defer uses the value of b when the statement is executed
+		defer fmt.Printf("defer: b = %d\n", b)
+		b = 2 // Change the value of b after the defer
+		fmt.Printf("just before return: b = %d\n",b)
+		b=3// Change the value of b one more time
+		fmt.Println("End a()")
+		return b
+	}
+
+	fmt.Printf("function return: b = %d\n", a())
 
 }
