@@ -10,14 +10,6 @@ For Mac
 brew install go
 ```
 
-Add to your ~/.bash_profile file
-
-```export GOPATH=/usr/local/opt/go/libexec/bin```
-
-and
-
-```export PATH=$PATH:$GOPATH```
-
 download the repo
 
 ```
