@@ -2,13 +2,15 @@ package basics
 
 import (
 	"fmt"
-	"github.com/dustin/go-humanize"
 	"math"
 	"math/cmplx"
 	"unicode/utf8"
 	"unsafe"
+
+	"github.com/dustin/go-humanize"
 )
 
+// All calls code examples
 func All() {
 	integersAndFloatsAndComplex()
 	stringsAndRunesAndBytes()
@@ -20,48 +22,47 @@ func integersAndFloatsAndComplex() {
 
 	fmt.Printf("\n=== Integers, Floats, Complex ===\n\n")
 
-
 	var i = math.MaxInt64
-	var i8_min int8 = -1 << 7     // -128
-	var i8_max int8 = 1<<7 - 1    // 127
-	var i16_min int16 = -1 << 15  // -32768
-	var i16_max int16 = 1<<15 - 1 // 32767
-	var i32_min int32 = -1 << 31  // -2,147,483,648
-	var i32_max int32 = 1<<31 - 1 // 2,147,483,647
-	var i64_min int64 = 1<<63 - 1 // 9,223,372,036,854,775,803
-	var i64_max int64 = -1 << 63  // -9,223,372,036,854,775,808
+	var i8min int8 = -1 << 7     // -128
+	var i8max int8 = 1<<7 - 1    // 127
+	var i16min int16 = -1 << 15  // -32768
+	var i16max int16 = 1<<15 - 1 // 32767
+	var i32min int32 = -1 << 31  // -2,147,483,648
+	var i32max int32 = 1<<31 - 1 // 2,147,483,647
+	var i64min int64 = 1<<63 - 1 // 9,223,372,036,854,775,803
+	var i64max int64 = -1 << 63  // -9,223,372,036,854,775,808
 
 	fmt.Printf("%d  %d  %d  %d  %d  %s  %s  %s  %s\n",
 		i,
-		i8_min, i8_max,
-		i16_min, i16_max,
-		humanize.Comma(int64(i32_min)), humanize.Comma(int64(i32_max)),
-		humanize.Comma(i64_min), humanize.Comma(i64_max))
+		i8min, i8max,
+		i16min, i16max,
+		humanize.Comma(int64(i32min)), humanize.Comma(int64(i32max)),
+		humanize.Comma(i64min), humanize.Comma(i64max))
 
-	var ui8_min uint8 = 0
-	var ui8_max uint8 = 1<<8 - 1
-	var ui16_min uint16 = 0
-	var ui16_max uint16 = 1<<16 - 1
-	var ui32_min uint32 = 0
-	var ui32_max uint32 = 1<<32 - 1
-	var ui64_min uint64 = 0
-	var ui64_max uint64 = 1<<64 - 1
+	var ui8min uint8 = 0
+	var ui8max uint8 = 1<<8 - 1
+	var ui16min uint16 = 0
+	var ui16max uint16 = 1<<16 - 1
+	var ui32min uint32 = 0
+	var ui32max uint32 = 1<<32 - 1
+	var ui64min uint64 = 0
+	var ui64max uint64 = 1<<64 - 1
 
 	fmt.Printf("%d  %d  %d  %d  %d  %d  %d  %d\n",
-		ui8_min, ui8_max,
-		ui16_min, ui16_max,
-		ui32_min, ui32_max,
-		ui64_min, ui64_max)
+		ui8min, ui8max,
+		ui16min, ui16max,
+		ui32min, ui32max,
+		ui64min, ui64max)
 
 	var ptr uintptr = uintptr(unsafe.Pointer(new(string)))
 
 	fmt.Printf("%v\n", ptr)
 
 	var f = math.MaxFloat64
-	var f32_max float32 = math.MaxFloat32
-	var f64_max float64 = math.MaxFloat64
+	var f32max float32 = math.MaxFloat32
+	var f64max float64 = math.MaxFloat64
 
-	fmt.Printf("%.4e  %.4e  %.4e\n", f, f32_max, f64_max)
+	fmt.Printf("%.4e  %.4e  %.4e\n", f, f32max, f64max)
 
 	c := complex(3, 4)
 	var c64 complex64 = complex(math.MaxFloat32, math.MaxFloat32)
@@ -107,7 +108,7 @@ func loopsAndIf() {
 
 	// init and post statements can be omitted
 	k := 3
-	for ; k < 5; {
+	for k < 5 {
 		fmt.Printf("Optional iteration %d\n", k)
 		k++
 	}
@@ -151,7 +152,7 @@ func loopsAndIf() {
 	animal := "bear"
 
 	// The switch statement
-	switch (animal) {
+	switch animal {
 	case "deer":
 		fmt.Println("Bambi")
 	case "bear":
@@ -180,8 +181,8 @@ func deferExample() {
 		b := 1 // Defer uses the value of b when the statement is executed
 		defer fmt.Printf("defer: b = %d\n", b)
 		b = 2 // Change the value of b after the defer
-		fmt.Printf("just before return: b = %d\n",b)
-		b=3// Change the value of b one more time
+		fmt.Printf("just before return: b = %d\n", b)
+		b = 3 // Change the value of b one more time
 		fmt.Println("End a()")
 		return b
 	}
