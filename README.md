@@ -31,3 +31,9 @@ run it from the command line
 ## What does it do
 
 ```main.go``` calls ```basics/basics.go``` and runs sample code that demonstrates types and control structures. I will add more features as I explore the language.
+
+## Documentation
+
+* [Documentation](https://golang.org/doc/)
+* [Quick Reference](https://devhints.io/go)
+* [A Tour of Go](https://tour.golang.org/welcome/1)
